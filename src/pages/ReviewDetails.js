@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery, gql } from '@apollo/client'
 import { Link } from "react-router-dom";
+import ReactMarkdown from 'react-markdown'
 
 const REVIEW = gql`
 query GetReview($id:ID!){
@@ -39,7 +40,7 @@ const ReviewDetails = () => {
 
           <small>console list</small>
 
-          <p>{`${data.review.data.attributes.body.substring(0, 200)}...`}</p>
+          <ReactMarkdown>{`${data.review.data.attributes.body.substring(0, 200)}...`}</ReactMarkdown>
           
         </div>
       }
